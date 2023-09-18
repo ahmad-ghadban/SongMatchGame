@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>The Song Match Game</p>
+        <p>MeloMatch</p>
       </header>
     </div>
   );
