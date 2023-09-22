@@ -1,14 +1,19 @@
 import logo from "./logo.svg";
 import "./App.css";
+import WelcomePage from "./components/WelcomePage/WelcomePage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LobbyPage from "./components/LobbyPage/LobbyPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>The Song Match Game</p>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" exact element={<WelcomePage />} />
+          <Route path="/lobby" exact element={<LobbyPage />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
