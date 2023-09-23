@@ -3,8 +3,8 @@ import "./App.css";
 
 function App() {
   const message = () => {
-  console.log("Create Game Button") 
-  }
+    console.log("Create Game Button");
+  };
 
   return (
     <div className="App">
@@ -12,14 +12,13 @@ function App() {
       <button onClick={message}> Create Game </button>
       <button onClick={message}> Join Game </button>
       <form>
-      <label>Private Game Code
-        <input type="text" />
-      </label>
-    </form>
-    
+        <label>
+          Private Game Code
+          <input type="text" />
+        </label>
+      </form>
     </div>
   );
-
 }
 
 export default App;
