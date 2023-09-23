@@ -1,23 +1,19 @@
 import logo from "./logo.svg";
 import "./App.css";
+import WelcomePage from "./components/WelcomePage/WelcomePage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LobbyPage from "./components/LobbyPage/LobbyPage";
 
 function App() {
-  const message = () => {
-    console.log("Create Game Button");
-  };
-
   return (
-    <div className="App">
-      <h1>MeloMatch</h1>
-      <button onClick={message}> Create Game </button>
-      <button onClick={message}> Join Game </button>
-      <form>
-        <label>
-          Private Game Code
-          <input type="text" />
-        </label>
-      </form>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" exact element={<WelcomePage />} />
+          <Route path="/lobby" exact element={<LobbyPage />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
