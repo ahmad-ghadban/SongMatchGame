@@ -1,8 +1,8 @@
-import React from "react";
+import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 function WelcomePage() {
+  const allusernames = [];
   const navigate = useNavigate();
   const initialValues = { username: "", code: "" };
   const [formValues, setFormValues] = useState(initialValues);
@@ -30,8 +30,16 @@ function WelcomePage() {
     }
     console.log(errors);
     if (Object.keys(errors).length === 0) {
+      allusernames.concat("ahmad");
+      console.log(allusernames);
       localStorage.removeItem("code");
-      localStorage.setItem("username", formValues.username);
+      if (localStorage.getItem("username") === null) {
+        localStorage.setItem("username", [formValues.username]);
+      }
+      let current = localStorage.getItem("username");
+      console.log(current);
+      // current.append("check");
+      // localStorage.setItem("username", current);
       navigate("/lobby");
     }
     return errors;
@@ -50,7 +58,9 @@ function WelcomePage() {
     console.log(errors);
     if (Object.keys(errors).length === 0) {
       localStorage.setItem("code", formValues.code);
-      localStorage.setItem("username", formValues.username);
+      if (localStorage.getItem("username") === null) {
+        localStorage.setItem("username", [formValues.username]);
+      }
       navigate("/lobby");
     }
     return errors;
